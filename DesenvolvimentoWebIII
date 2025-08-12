@@ -1,0 +1,33 @@
+Para inicialização do projeto, crie uma pasta com o nome de ListaTarefas.
+
+Instale as seguintes dependências:
+npm init -y
+npm install express prisma @prisma/client dotenv
+npm install -D typescript ts-node-dev @types/node @types/express
+
+Crie o arquivo de configuração do TS:
+npx tsc –init
+
+Crie um BD no PostgreSQL e coloque os parâmetros de conexão no arquivo .env. Variáveis declaradas no .env,
+automaticamente estarão disponíveis para o Prisma:
+
+PORT = 3101 -- Porta de comunicação que roda o PostgreSQL
+USER=postgres -- Padrão utilizado pelo postgre
+HOST=localhost
+DATABASE=todo_db -- Nome do Banco de Dados
+PASSWORD=123
+SGBDPORT=5432
+
+Sintaxe → DATABASE_URL=postgresql://${USER}:${PASSWORD}@${HOST}:${SGBDPORT}/${DATABASE}
+
+Arquivo .env:
+
+DATABASE_URL="postgresql://postgres:123@localhost:5432/todo_db"
+Passos para criar o projeto usando Prisma.
+Passo 1 – Inicialização do Prima:
+npx prisma init --datasource-provider postgresql
+
+Passo 2 – Gerar as migrações e sincronizar o BD:
+O comando a seguir é utilizado para criar a primeira migração no nosso projeto Prisma e aplicar as alterações
+definidas no seu schema.prisma diretamente ao BD.
+npx prisma migrate dev --name init
