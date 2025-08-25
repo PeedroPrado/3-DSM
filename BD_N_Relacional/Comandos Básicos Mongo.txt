@@ -1,0 +1,22 @@
+1- Criar banco:
+
+use dbcursos
+
+2- Criar coleção:
+
+db.createCollection("alunos")
+
+3- Adicionar Dados (um)
+
+db.alunos.insertOne ({
+
+}) 
+
+4- Adicionar Dados (Mais de um, em [])
+
+db. alunos.insertMany ({
+[
+ }
+{
+}
+])
