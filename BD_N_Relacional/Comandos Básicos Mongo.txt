@@ -6,13 +6,13 @@ db.clientes.insertOne({
 "idade": 30,
 "cidade": "São Paulo"
 });
-
+___________________________________________________________________________________________________________
 2- Lendo Registros (READ)
 
 db.clientes.find({ "cidade": "São Paulo" });
 ❑ Exemplo - Buscar clientes com idade maior que 25:
 db.clientes.find({ "idade": { $gt: 25 } });
-
+___________________________________________________________________________________________________________
 3- Atualizando Registros (UPDATE):
 MongoDB usa o operador $set para atualizar somente os
 campos desejados. O $updateOne() altera apenas o primeiro documento
@@ -30,7 +30,7 @@ db.clientes.updateMany(
 { "cidade": "São Paulo" },
 { $set: { "status": "Ativo" } }
 );
-
+___________________________________________________________________________________________________________
 4- Excluindo Registros (DELETE): (Observação: O deleteOne() remove apenas o primeiro documento encontrado.
 Para remover múltiplos registros, use deleteMany(). )
 
@@ -157,5 +157,6 @@ idade:true,
 _id:false
 } 
 }
+
 
 
