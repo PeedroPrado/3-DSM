@@ -1,16 +1,59 @@
+CRUD - As Quatro Operações Básicas de um Banco de Dados:
+
+1- Criando Registros (CREATE)
+db.clientes.insertOne({
+"nome": "Ana",
+"idade": 30,
+"cidade": "São Paulo"
+});
+
+2- Lendo Registros (READ)
+
+db.clientes.find({ "cidade": "São Paulo" });
+❑ Exemplo - Buscar clientes com idade maior que 25:
+db.clientes.find({ "idade": { $gt: 25 } });
+
+3- Atualizando Registros (UPDATE):
+MongoDB usa o operador $set para atualizar somente os
+campos desejados. O $updateOne() altera apenas o primeiro documento
+encontrado.
+
+Alteração de Dados
+MongoDB (Atualização com $set)
+db.clientes.updateOne(
+{ "nome": "Ana" },
+{ $set: { "idade": 31 } }
+);
+
+Para atualizar múltiplos documentos:
+db.clientes.updateMany(
+{ "cidade": "São Paulo" },
+{ $set: { "status": "Ativo" } }
+);
+
+4- Excluindo Registros (DELETE): (Observação: O deleteOne() remove apenas o primeiro documento encontrado.
+Para remover múltiplos registros, use deleteMany(). )
+
+MongoDB (Excluindo Documentos com JSON)
+db.clientes.deleteOne({ "nome": "Ana" });
+❑ Exemplo - Remover todos os clientes inativos:
+db.clientes.deleteMany({ "status": "Inativo" });
+
+___________________________________________________________________________________________________________
 1- Criar banco: 
 
 use dbcursos 
-
+___________________________________________________________________________________________________________
 2- Criar coleção: 
 
 db.createCollection("alunos") 
+___________________________________________________________________________________________________________
 3- Adicionar Dados (um) 
 
 db.alunos.insertOne ({ 
 
 }) 
-
+___________________________________________________________________________________________________________
 4- Adicionar Dados (Mais de um, em []) 
 
 db. alunos.insertMany ({ 
@@ -20,6 +63,7 @@ db. alunos.insertMany ({
 } 
 
 ]) 
+___________________________________________________________________________________________________________
 
 5- Operador de Igualdade 
 
@@ -37,6 +81,7 @@ _id:false
 } 
 ) 
 
+___________________________________________________________________________________________________________
 6- Diferente de: 
 
 $ne: comparador “diferente de”.  
@@ -52,7 +97,7 @@ idade:true,
 _id:false 
 } 
 ) 
-
+___________________________________________________________________________________________________________
 7- Maior que, maior ou igual a, menor que, menor ou igual a:  
 (Se tem "e" no final é maior ou igual a, menor ou igual a) 
 
@@ -68,7 +113,7 @@ idade:true,
 _id:false  
 } 
 ) 
-
+___________________________________________________________________________________________________________
 8- Operador de intervalo: $in: corresponde a qualquer um dos valores especificados <br>
 em um array.  
 
@@ -82,7 +127,7 @@ idade:true,
 _id:false 
 } 
 ) 
-
+___________________________________________________________________________________________________________
 9- Operador de intervalo: $nin (Liste os documentos que não possuem o nome de alunos:)
 
 db.alunos.find(
@@ -95,7 +140,7 @@ idade:true,
 _id:false
 } 
 ) 
-
+___________________________________________________________________________________________________________
 10- Operador de expressão regular: $regex 
 ($regex: seleciona os documentos cujos valores 
 correspondem a expressão regular especificada.)  
@@ -112,4 +157,5 @@ idade:true,
 _id:false
 } 
 }
+
 
