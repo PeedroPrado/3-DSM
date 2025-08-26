@@ -69,7 +69,8 @@ db.alunos.insertMany([
 { nome: "Bruna", idade: 27, genero: "F" },
 { nome: "Irene", idade: 20, genero: "F" },
 { nome: "Roberto", idade: 21, genero: "M" },
-{ nome: "Yuri",genero: "M" } 
+{ nome: "Yuri",genero: "M" }
+])
 ___________________________________________________________________________________________________________
 
 5- Operador de Igualdade 
@@ -164,6 +165,7 @@ idade:true,
 _id:false
 } 
 }
+
 
 
 
