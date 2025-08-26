@@ -50,19 +50,26 @@ db.createCollection("alunos")
 ___________________________________________________________________________________________________________
 3- Adicionar Dados (um) 
 
-db.alunos.insertOne ({ 
-
-}) 
+db.alunos.insertOne({
+nome: “Vitória",
+idade: 24,
+genero: "F"
+})
 ___________________________________________________________________________________________________________
 4- Adicionar Dados (Mais de um, em []) 
 
-db. alunos.insertMany ({ 
-[ 
- } 
-{ 
-} 
-
-]) 
+db.alunos.insertMany([
+{ nome: "Pedro", idade: 25, genero: "M" },
+{ nome: "Ana", idade: 20, genero: "F" },
+{ nome: "Maria", idade: 21, genero: "F" },
+{ nome: "Lucas", idade: 28, genero: "M" },
+{ nome: "João", idade: 22, genero: "M" },
+{ nome: "Renata", idade: 24, genero: "F" },
+{ nome: "Paulo", idade: 23, genero: "M" },
+{ nome: "Bruna", idade: 27, genero: "F" },
+{ nome: "Irene", idade: 20, genero: "F" },
+{ nome: "Roberto", idade: 21, genero: "M" },
+{ nome: "Yuri",genero: "M" } 
 ___________________________________________________________________________________________________________
 
 5- Operador de Igualdade 
@@ -157,6 +164,7 @@ idade:true,
 _id:false
 } 
 }
+
 
 
 
