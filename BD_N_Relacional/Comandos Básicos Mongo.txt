@@ -1,22 +1,115 @@
-1- Criar banco:
+1- Criar banco: <br>
 
-use dbcursos
+use dbcursos <br>
 
-2- Criar coleção:
+2- Criar coleção: <br>
 
-db.createCollection("alunos")
+db.createCollection("alunos") <br>
 
-3- Adicionar Dados (um)
+3- Adicionar Dados (um) <br>
 
-db.alunos.insertOne ({
+db.alunos.insertOne ({ <br>
 
-}) 
+})  <br>
 
-4- Adicionar Dados (Mais de um, em [])
+4- Adicionar Dados (Mais de um, em []) <br>
 
-db. alunos.insertMany ({
-[
- }
-{
-}
-])
+db. alunos.insertMany ({ <br>
+[ <br>
+ } <br>
+{ <br>
+} <br>
+
+]) <br>
+
+5- Operador de Igualdade <br>
+
+$eq: comparador “igual a”. <br>
+
+db.alunos.find( <br>
+{ <br>
+idade: {$eq:20}, <br>
+genero: {$eq:"F"} <br>
+}, <br>
+{ <br>
+nome:true, <br>
+idade:true, <br>
+_id:false <br>
+} <br>
+) <br>
+
+6- Diferente de:  <br>
+
+$ne: comparador “diferente de”.  <br>
+ 
+db.alunos.find( <br>
+{ <br>
+idade: {$ne:20}, <br>
+genero: {$eq:"F"} <br>
+}, <br>
+{ <br>
+nome:true, <br>
+idade:true, <br>
+_id:false <br>
+} <br>
+) <br>
+
+7- Maior que, maior ou igual a, menor que, menor ou igual a:  <br>
+(Se tem "e" no final é maior ou igual a, menor ou igual a) <br>
+
+$gt, $gte, $lt, $lte: <br>
+
+db.alunos.find( <br>
+{ <br>
+idade: {$gte:22, $lte:24} <br>
+}, <br>
+{ <br>
+nome:true, <br>
+idade:true, <br>
+_id:false  <br>
+} <br>
+) <br>
+
+8- Operador de intervalo: $in: corresponde a qualquer um dos valores especificados <br>
+em um array.  <br>
+
+db.alunos.find( <br>
+{ <br>
+nome:{$in:["Maria","João","Bruna"]} <br>
+}, <br>
+{  <br>
+nome:true, <br>
+idade:true, <br>
+_id:false <br>
+} <br> 
+) <br>
+
+9- Operador de intervalo: $nin (Liste os documentos que não possuem o nome de alunos:) <br>
+
+db.alunos.find( <br>
+{ <br>
+nome:{$nin:["Maria","João","Bruna"]} <br>
+}, <br>
+{ <br>
+nome:true, <br>
+idade:true, <br>
+_id:false <br>
+} <br>
+) <br>
+
+10- Operador de expressão regular: $regex <br>
+($regex: seleciona os documentos cujos valores <br>
+correspondem a expressão regular especificada.)  <br>
+O i indica que a expressão é insensível ao case da <br>
+letra (nao considera se é Maicúsculo ou Minúsculo) <br>
+
+db.alunos.find( <br>
+{ <br>
+nome:{ $regex: /o/i } <br>
+}, <br>
+{ <br> 
+nome:true, <br>
+idade:true, <br>
+_id:false <br>
+} <br>
+) <br>
