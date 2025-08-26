@@ -1,115 +1,115 @@
-1- Criar banco: <br>
+1- Criar banco: 
 
-use dbcursos <br>
+use dbcursos 
 
-2- Criar coleção: <br>
+2- Criar coleção: 
 
-db.createCollection("alunos") <br>
+db.createCollection("alunos") 
+3- Adicionar Dados (um) 
 
-3- Adicionar Dados (um) <br>
+db.alunos.insertOne ({ 
 
-db.alunos.insertOne ({ <br>
+}) 
 
-})  <br>
+4- Adicionar Dados (Mais de um, em []) 
 
-4- Adicionar Dados (Mais de um, em []) <br>
+db. alunos.insertMany ({ 
+[ 
+ } 
+{ 
+} 
 
-db. alunos.insertMany ({ <br>
-[ <br>
- } <br>
-{ <br>
-} <br>
+]) 
 
-]) <br>
+5- Operador de Igualdade 
 
-5- Operador de Igualdade <br>
+$eq: comparador “igual a”. 
 
-$eq: comparador “igual a”. <br>
+db.alunos.find( 
+{ 
+idade: {$eq:20}, 
+genero: {$eq:"F"} 
+}, 
+{ 
+nome:true, 
+idade:true, 
+_id:false
+} 
+) 
 
-db.alunos.find( <br>
-{ <br>
-idade: {$eq:20}, <br>
-genero: {$eq:"F"} <br>
-}, <br>
-{ <br>
-nome:true, <br>
-idade:true, <br>
-_id:false <br>
-} <br>
-) <br>
+6- Diferente de: 
 
-6- Diferente de:  <br>
-
-$ne: comparador “diferente de”.  <br>
+$ne: comparador “diferente de”.  
  
-db.alunos.find( <br>
-{ <br>
-idade: {$ne:20}, <br>
-genero: {$eq:"F"} <br>
-}, <br>
-{ <br>
-nome:true, <br>
-idade:true, <br>
-_id:false <br>
-} <br>
-) <br>
+db.alunos.find(
+{ 
+idade: {$ne:20}, 
+genero: {$eq:"F"} 
+}, 
+{ 
+nome:true, 
+idade:true, 
+_id:false 
+} 
+) 
 
-7- Maior que, maior ou igual a, menor que, menor ou igual a:  <br>
-(Se tem "e" no final é maior ou igual a, menor ou igual a) <br>
+7- Maior que, maior ou igual a, menor que, menor ou igual a:  
+(Se tem "e" no final é maior ou igual a, menor ou igual a) 
 
-$gt, $gte, $lt, $lte: <br>
+$gt, $gte, $lt, $lte: 
 
-db.alunos.find( <br>
-{ <br>
-idade: {$gte:22, $lte:24} <br>
-}, <br>
-{ <br>
-nome:true, <br>
-idade:true, <br>
-_id:false  <br>
-} <br>
-) <br>
+db.alunos.find( 
+{ 
+idade: {$gte:22, $lte:24} 
+}, 
+{ 
+nome:true,
+idade:true, 
+_id:false  
+} 
+) 
 
 8- Operador de intervalo: $in: corresponde a qualquer um dos valores especificados <br>
-em um array.  <br>
+em um array.  
 
-db.alunos.find( <br>
-{ <br>
-nome:{$in:["Maria","João","Bruna"]} <br>
-}, <br>
-{  <br>
-nome:true, <br>
-idade:true, <br>
-_id:false <br>
-} <br> 
-) <br>
+db.alunos.find( 
+{ 
+nome:{$in:["Maria","João","Bruna"]}
+},
+{  
+nome:true, 
+idade:true, 
+_id:false 
+} 
+) 
 
-9- Operador de intervalo: $nin (Liste os documentos que não possuem o nome de alunos:) <br>
+9- Operador de intervalo: $nin (Liste os documentos que não possuem o nome de alunos:)
 
-db.alunos.find( <br>
-{ <br>
-nome:{$nin:["Maria","João","Bruna"]} <br>
-}, <br>
-{ <br>
-nome:true, <br>
-idade:true, <br>
-_id:false <br>
-} <br>
-) <br>
+db.alunos.find(
+{ 
+nome:{$nin:["Maria","João","Bruna"]}
+},
+{ 
+nome:true, 
+idade:true, 
+_id:false
+} 
+) 
 
-10- Operador de expressão regular: $regex <br>
-($regex: seleciona os documentos cujos valores <br>
-correspondem a expressão regular especificada.)  <br>
-O i indica que a expressão é insensível ao case da <br>
-letra (nao considera se é Maicúsculo ou Minúsculo) <br>
+10- Operador de expressão regular: $regex 
+($regex: seleciona os documentos cujos valores 
+correspondem a expressão regular especificada.)  
+O i indica que a expressão é insensível ao case da 
+letra (nao considera se é Maicúsculo ou Minúsculo) 
 
-db.alunos.find( <br>
-{ <br>
-nome:{ $regex: /o/i } <br>
-}, <br>
-{ <br> 
-nome:true, <br>
-idade:true, <br>
-_id:false <br>
-} <br>
-) <br>
+db.alunos.find( 
+{
+nome:{ $regex: /o/i } 
+},
+{ 
+nome:true, 
+idade:true, 
+_id:false
+} 
+}
+
