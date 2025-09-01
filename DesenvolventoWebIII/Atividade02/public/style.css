@@ -1,0 +1,153 @@
+/* Importação de fonte do Google Fonts para um visual mais moderno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Estilos globais */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1, h2 {
+    color: #4a4a4a;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Formulário de cadastro */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+form input[type="text"],
+form input[type="number"],
+form button {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+form input[type="text"],
+form input[type="number"] {
+    flex: 1;
+    min-width: 150px; /* Garante que os campos não fiquem pequenos em telas grandes */
+}
+
+form button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px); /* Efeito de elevação */
+}
+
+/* Tabela de lista de compras */
+.table-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Garante que as bordas arredondadas funcionem */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f9f9fa;
+}
+
+/* Estilos dos botões de ação */
+td button.editar,
+td button.excluir {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 8px;
+    transition: background-color 0.3s;
+}
+
+td button.editar {
+    background-color: #ffc107;
+    color: #333;
+}
+
+td button.excluir {
+    background-color: #dc3545;
+    color: white;
+}
+
+td button.editar:hover {
+    background-color: #e0a800;
+}
+
+td button.excluir:hover {
+    background-color: #c82333;
+}
+
+/* Estilo para o Total Geral */
+#total-geral {
+    font-weight: 600;
+    color: #28a745;
+    font-size: 1.2em;
+}
+
+.total-geral-label {
+    text-align: right;
+    font-weight: 600;
+}
