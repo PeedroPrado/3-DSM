@@ -1,4 +1,4 @@
-1-  Inserir 5 novas estações meteorológicas com diferentes sensores.
+// 1-  Inserir 5 novas estações meteorológicas com diferentes sensores.
 
 db.estacoes_meteorologicas.insertMany([
   {"nome": "Coreia Popular", "localizacao":"Koreia", "sensores": ["temperatura", "umidade"]},
@@ -8,7 +8,7 @@ db.estacoes_meteorologicas.insertMany([
   {"nome": "Estaçao Lula", "localização": "Brilha uma estrela", "sensores":["temperatura, umidade"]},
 ]);
 
-2- Adicionar um novo campo "manutenção" com valor pendente a todas as estações
+// 2- Adicionar um novo campo "manutenção" com valor pendente a todas as estações
 
 db.estacoes_meteorologicas.updateMany(
   {},
@@ -22,18 +22,19 @@ db.estacoes_meteorologicas.updateOne(
   {$push: {"sensores":"pressão"}}
 )
 
-4- Atualizar a "Estação Norte" para remover o sensor "vento".
+// 4- Atualizar a "Estação Norte" para remover o sensor "vento".
 
 db.estacoes_meteorologicas.updateOne(
   {"nome": "Estação Norte"},
   {$pull: {"sensores":"vento"}}
 )
 
-7-
+// 7-
 db.estacoes_meteorologicas.find({"sensores" : "temperatura"})
 
 db.estacoes_meteorologicas.find(
 {"temperatura": { $exists: true }}
 );
 
-8- 
+// 8- 
+
