@@ -1,0 +1,81 @@
+// === Pessoa (Superclasse) ===
+class Pessoa {
+  private _nome: string;
+  private _idade: number;
+
+  constructor(nome: string, idade: number) {
+    this._nome = nome;
+    this._idade = idade;
+  }
+
+  get nome(): string {
+    return this._nome;
+  }
+
+  get idade(): number {
+    return this._idade;
+  }
+}
+
+// === ClienteModel (Herda Pessoa) ===
+class ClienteModel extends Pessoa {
+  private _id: number;
+  private _status: boolean;
+
+  constructor(id: number, nome: string, idade: number, status: boolean = true) {
+    super(nome, idade);
+    this._id = id;
+    this._status = status;
+  }
+
+  get id(): number {
+    return this._id;
+  }
+
+  get status(): boolean {
+    return this._status;
+  }
+
+  set status(status: boolean) {
+    this._status = status;
+  }
+}
+
+// === ClienteView (Responsável por Exibir Clientes) ===
+class ClienteView {
+  mostrarClientes(clientes: ClienteModel[]): void {
+    console.log("=== Lista de Clientes ===");
+    clientes.forEach((cliente) => {
+      console.log(`ID: ${cliente.id} | Nome: ${cliente.nome} | Idade: ${cliente.idade} | Status: ${cliente.status ? "Ativo" : "Desativado"}`);
+    });
+    console.log("=========================\n");
+  }
+}
+
+// === ClienteController (Gerencia Lógica de Negócio) ===
+class ClienteController {
+  private clientes: ClienteModel[] = [];
+  private view: ClienteView;
+  private proximoId: number = 1;
+
+  constructor(view: ClienteView) {
+    this.view = view;
+  }
+
+  adicionarCliente(nome: string, idade: number): void {
+    const novoCliente = new ClienteModel(this.proximoId, nome, idade, true);
+    this.clientes.push(novoCliente);
+    this.proximoId++;
+    this.view.mostrarClientes(this.clientes);
+  }
+
+  setarStatus(id: number, status: boolean): void {
+    const cliente = this.clientes.find(c => c.id === id);
+    if (cliente) {
+      cliente.status = status;
+    } else {
+      console.log(`Cliente com ID ${id} não encontrado.`);
+    }
+    this.view.mostrarClientes(this.clientes);
+  }
+}
