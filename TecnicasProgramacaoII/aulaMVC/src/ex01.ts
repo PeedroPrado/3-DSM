@@ -39,3 +39,57 @@ class ClienteModel extends Pessoa{
     }
 }
 
+
+// === Visao (Responsável por Exibir Clientes) ===
+class ClienteView {
+  mostrarClientes(clientes: ClienteModel[]): void {
+    console.log("=== Lista de Clientes ===");
+    if(clientes.length === 0){
+        console.log("Nenhum cliente encontrado")
+    } else {
+        clientes.forEach(cliente => {
+            const statusTexto = cliente.status ? "Ativo" : "Desativado";
+            console.log(`ID: ${cliente.id}, Nome: ${cliente.nome}, Idade: ${cliente.idade}, Status: ${statusTexto}`);
+        });
+    }
+  }}
+// Controller (Gerancia a lógica do negócio)
+
+class ClienteController {
+    private modelo: ClienteModel[] = [];
+    private visao: ClienteView;
+    private proximoId: number = 1;
+
+    constructor (modelo: ClienteModel[], visao: ClienteView){
+        this.modelo = modelo;
+        this.visao = visao;
+    }
+
+    adicionarCliente(nome: string, idade: number):void{
+        const novoCliente = new ClienteModel (this.proximoId++, nome, idade, true);
+        this.modelo.push(novoCliente);
+        this.visao.mostrarClientes(this.modelo);
+    }
+    
+    alterarStatus (id: number, status: boolean):void {
+        const cliente = this.modelo.find(c => c.id === id);
+        if (cliente){
+            cliente.status = status; 
+        }
+        this.visao.mostrarClientes(this.modelo)
+    }
+} 
+
+//Execução
+
+const clientes: ClienteModel[] = [];
+const clienteView = new ClienteView();
+const clienteController = new ClienteController(clientes, clienteView);
+
+console.log("--- Adicionando Clientes ---");
+clienteController.adicionarCliente("João", 30);
+clienteController.adicionarCliente("Maria", 20);
+clienteController.adicionarCliente("Antonio", 50);
+
+console.log("--- Alterando o status do cliente com ID 2 para 'Desativado' ---");
+clienteController.alterarStatus(2, false);
