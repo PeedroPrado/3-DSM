@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Discos - Vinil e CD</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro de Discos</h1>
+
+    <form id="form-disco">
+      <input type="hidden" id="id" />
+
+      <div class="grid">
+        <label>Título
+          <input type="text" id="titulo" required />
+        </label>
+        <label>Artista
+          <input type="text" id="artista" required />
+        </label>
+        <label>Ano
+          <input type="number" id="ano" min="1800" max="2100" required />
+        </label>
+        <label>Gênero
+          <input type="text" id="genero" required />
+        </label>
+        <label>Formato
+          <select id="formato" required>
+            <option value="">Selecione</option>
+            <option value="Vinil">Vinil</option>
+            <option value="CD">CD</option>
+          </select>
+        </label>
+        <label>Preço (R$)
+          <input type="number" id="preco" min="0" step="0.01" required />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="btnSalvar">Salvar</button>
+        <button type="button" id="btnCancelar" class="secondary">Cancelar</button>
+      </div>
+    </form>
+
+    <h2>Lista de Discos</h2>
+    <table id="tabela">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Artista</th>
+          <th>Ano</th>
+          <th>Gênero</th>
+          <th>Formato</th>
+          <th>Preço</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
