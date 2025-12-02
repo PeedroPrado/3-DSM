@@ -12,5 +12,6 @@
  a) Para ver todas as rotas: "http://localhost:3001/rotas"
  
  b) Para adicionar leituras ao Mongo: "http://localhost:3001/api/leituras" 
+   - Use o Thunder no VSCode para adicionar os dados
  
  c) Para Buscar clima e salvar no Mongo:  "http://localhost:3001/api/clima?cidade=NomeDaCidade"
