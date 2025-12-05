@@ -5,8 +5,8 @@
     Backend, Integração, Aplicação WEB
 
 ## Matérias estudadas
-     Técnicas de Programação II
-     Desenvolvimento WEB II
+    Técnicas de Programação II
+    Desenvolvimento WEB II
     Banco de Dados não relacional (MongoDB)
     Interação Humano Computador
     Gestão Ágil de Projeto 
