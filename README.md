@@ -1,4 +1,4 @@
-# - III Semestre do curso de Desenvolvimento de Software Multiplataforma
+# III - Semestre do curso de Desenvolvimento de Software Multiplataforma
 
 ## Este repositório é dedicado para guardar as atividades desenvolvidas no terceiro semestre do curso
     Estudamos JavaScript, TypeScript, MongoDB, HTML, CSS, React
